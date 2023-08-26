@@ -45,7 +45,7 @@
 	<p style="margin: 0;">Author: Dustin_Chen, email: <a href="mailto:Dustin_Chen@compal.com" style="line-height: 1;">Dustin_Chen@compal.com</a> or <a href="mailto:chuhpsdustin@gmail.com" style="line-height: 1;">chuhpsdustin@gmail.com</a></p>	
     <p>Ref: ETSI TS 138 211 chap 7.4.2.1  Physical-layer cell identities </p>
 	<img src="https://raw.githubusercontent.com/dustinchen26/PCI/master/formula.png" alt="GitHub Image" width="450">
-    <h3>● Input N_ID1, N_ID2, then Calculate PCI</h3>
+    <h3>【1】Input N_ID1, N_ID2, then Calculate PCI</h3>
     <label for="nid1">N_ID1 range {0, 1, ..., 335}:</label>
     <input type="number" id="nid1"><br>
     <label for="nid2">N_ID2 range {0, 1, 2}:</label>
@@ -53,7 +53,7 @@
     <button onclick="calculateNCellID()">Calculate</button>
     <p id="ncellResult"></p>
 
-    <h3>● Input PCI, then calculate N_ID1,N_ID2 </h3>
+    <h3>【2】Input PCI, then calculate N_ID1,N_ID2 </h3>
     <label for="nCellID">PCI (N_cell_ID):</label>
     <input type="number" id="nCellID"><br>
     <button onclick="calculateNIDs()">Calculate</button>
