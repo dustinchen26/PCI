@@ -4,7 +4,7 @@ online calculate: https://dustinchen26.github.io/PCI
 ## example
 ```
 Ref: ETSI TS 138 211 chap 7.4.2.1 Physical-layer cell identities
-PCI = 3 * N_ID1 + *N_ID2
+PCI = 3 * N_ID1 + N_ID2
 
 【1】Input N_ID1, N_ID2, then Calculate PCI
 N_ID1 range {0, 1, ..., 335}: 303
