@@ -1,0 +1,62 @@
+<!-- 
+  Copyright © [2023] [Dustin_Chen]. All rights reserved.
+  Author: Dustin Chen
+  Email:  Dustin_Chen@compal.com
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NR PCI Calculator</title>
+    <style>
+        input[type="number"] {
+            width: 60px; /* 調整寬度 */
+        }
+    </style>
+    <script>
+        function calculateNCellID() {
+            var nid1 = parseInt(document.getElementById("nid1").value);
+            var nid2 = parseInt(document.getElementById("nid2").value);
+
+            if (isNaN(nid1) || isNaN(nid2) || nid1 < 0 || nid1 > 335 || nid2 < 0 || nid2 > 2) {
+                alert("Please enter valid numbers for N_ID1 (0-335) and N_ID2 (0-2).");
+                return;
+            }
+
+            var nCellID = 3 * nid1 + nid2;
+            document.getElementById("ncellResult").innerHTML = "PCI (N_cell_ID) = " + nCellID;
+        }
+
+        function calculateNIDs() {
+            var nCellID = parseInt(document.getElementById("nCellID").value);
+
+            if (isNaN(nCellID) || nCellID < 0 || nCellID > 1005) {
+                alert("Please enter a valid number for N_cell_ID (0-1005).");
+                return;
+            }
+
+            var nid2 = nCellID % 3;
+            var nid1 = (nCellID - nid2) / 3;
+            document.getElementById("nidResult").innerHTML = "N_ID1 = " + nid1 + ", N_ID2 = " + nid2;
+        }
+    </script>
+</head>
+<body>
+    <h1>NR PCI Calculator</h1>
+	<p style="margin: 0;">Author: Dustin_Chen, email: <a href="mailto:Dustin_Chen@compal.com" style="line-height: 1;">Dustin_Chen@compal.com</a> or <a href="mailto:chuhpsdustin@gmail.com" style="line-height: 1;">chuhpsdustin@gmail.com</a></p>	
+    <p>Ref: ETSI TS 138 211 chap 7.4.2.1  Physical-layer cell identities </p>
+	<img src="https://raw.githubusercontent.com/dustinchen26/PCI/master/formula.png" alt="GitHub Image" width="450">
+    <h3>● Input N_ID1, N_ID2, then Calculate PCI</h3>
+    <label for="nid1">N_ID1 range {0, 1, ..., 335}:</label>
+    <input type="number" id="nid1"><br>
+    <label for="nid2">N_ID2 range {0, 1, 2}:</label>
+    <input type="number" id="nid2"><br>
+    <button onclick="calculateNCellID()">Calculate</button>
+    <p id="ncellResult"></p>
+
+    <h3>● Input PCI, then calculate N_ID1,N_ID2 </h3>
+    <label for="nCellID">PCI (N_cell_ID):</label>
+    <input type="number" id="nCellID"><br>
+    <button onclick="calculateNIDs()">Calculate</button>
+    <p id="nidResult"></p>
+</body>
+</html>
